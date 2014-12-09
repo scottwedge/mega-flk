@@ -25,7 +25,7 @@ def index():
         },
         { 
             'author': {'nickname': 'bossip'}, 
-            'body': 'The Avengers movie was so cool!' 
+            'body': 'The Avatar movie was so cool!  Oh, and blue!' 
         }
     ]
     return render_template('index.html',

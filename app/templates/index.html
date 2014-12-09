@@ -1,7 +1,15 @@
 {% extends "base.html" %}
+
+{% block titi %}blog{% endblock titi%}
+
 {% block content %}
     <h1 class="jumbotron">Hi, {{ user.nickname }}!</h1>
-    {% for post in posts %}
-    <div><p>{{ post.author.nickname }} says: <b>{{ post.body }}</b></p></div>
+    <ul class="lead ">
+      {% for post in posts %}
+      <blockquote>
+       <b>{{ post.body }}</b>	
+	<footer><cite title="Source Title" class="text-warning">{{ post.author.nickname }}</cite></footer>
+      </blockquote>
     {% endfor %}
+    </ul>
 {% endblock %}

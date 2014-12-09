@@ -5,7 +5,7 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">    
     {% if title %}
-    <title>{{ title }} - microblog</title>
+    <title>{% block titi %}{{ title }} - microblog{% endblock %}</title>
     {% else %}
     <title>Welcome to microblog</title>
     {% endif %}
@@ -23,7 +23,8 @@
       {% if messages %}
         <ul>
         {% for message in messages %}
-            <li>{{ message }} </li>
+        <li class="bg-warning">{{ message }} </li>
+	<br />
         {% endfor %}
         </ul>
       {% endif %}
