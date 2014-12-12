@@ -20,11 +20,13 @@
   <div class="form-group">
     {{ form.hidden_tag() }}
     <label for="open">Please enter your OpenID:<br>
+      {% for error in form.openid.errors %}
+    <br />
+    <span class="bg-danger">[{{ error }}]</span><br />
+    {% endfor %}
     </label>
     {{ form.openid(size=80, id="open", placeholder=" enter your OpenID") }}
-    {% for error in form.openid.errors %}
-    <span class="bg-danger">[{{ error }}]</span><br />
-    {% endfor %}<br>Choose yours:
+    <br>Choose yours:
     {% for pr in providers %}
     <a href="javascript:set_openid('{{ pr.url }}', '{{ pr.name }}');" class="label label-primary">{{ pr.name }}</a>
     {% endfor %}
