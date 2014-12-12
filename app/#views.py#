@@ -98,6 +98,7 @@ def  user(nickname):
                            user=user,
                            posts=posts
                        )
+
 @app.route('/edit', methods=['GET', 'POST'])
 @login_required
 def edit():
@@ -113,3 +114,5 @@ def edit():
         form.nickname.data = g.user.nickname
         form.about_me.data = g.user.about_me
     return render_template('edit.html', form=form)
+
+    

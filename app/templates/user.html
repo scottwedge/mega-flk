@@ -4,16 +4,22 @@
 <table>
   <tr valign="top">
     <td><img src="{{ user.avatar(128)}}"></td>
-    <td><h1>User: {{ user.nickname }}</h1></td>
-    {% if user.about_me %}<p>{{ user.about_me }}</p>
-    {% endif %}
-    {% if user.last_seen %}<p><i>Last seen on: {{ user.last_seen }}</i></p>
-    {% endif %}
+    <td>
+      <h1>User: {{ user.nickname }}</h1>
+      <h2>About me:</h2>
+      {% if user.about_me %}<p>{{ user.about_me }}</p>
+      {% endif %}
+      {% if user.id == g.user.id %}<p><a href="{{ url_for('edit') }}">Edit</a></p>
+      {% endif %}
+      <hr />
+      {% if user.last_seen %}<p><i>Last seen on: {{ user.last_seen }}</i></p>
+      {% endif %}
+    </td>
   </tr>
 </table>
 <hr />
 {% for post in posts %}
-  {% include 'post.html' %}
+{% include 'post.html' %}
 <span style="margin-left:100px">&#9784;</span><br /><br />
 {% endfor %}
 {% endblock %}
