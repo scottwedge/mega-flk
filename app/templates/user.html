@@ -5,7 +5,7 @@
   <tr valign="top">
     <td><img src="{{ user.avatar(128)}}"></td>
     <td>
-      <h1>User: {{ user.nickname }}</h1>
+      <h1>{{ user.nickname }}</h1>
       <h2>About me:</h2>
       {% if user.about_me %}<p>{{ user.about_me }}</p>
       {% endif %}
