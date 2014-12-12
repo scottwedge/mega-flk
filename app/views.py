@@ -30,6 +30,10 @@ def index():
             'body': 'Beautiful day in Portland!' 
         },
         { 
+            'author': {'nickname': 'Baptiste'}, 
+            'body': "L'été c'est sûr d'être à Noël... " 
+        },
+        { 
             'author': {'nickname': 'bossip'}, 
             'body': 'The Avatar movie was so cool!  Oh, and blue!' 
         }
@@ -92,7 +96,8 @@ def  user(nickname):
         return redirect(url_for('index'))
     posts = [
         {'author': user, 'body': 'Test post #1'},
-        {'author': user, 'body': 'Test post #2'}
+        {'author': user, 'body': 'Test post #2'},
+        {'author': user, 'body': 'Test post #3'}
     ]
     return render_template('user.html',
                            user=user,

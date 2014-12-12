@@ -3,13 +3,14 @@
 {% block titi %}blog{% endblock titi%}
 
 {% block content %}
-    <h1 class="jumbotron">Hi, {{ user.nickname }}!</h1>
+    <h1 class="jumbotron">Hi, {{ user.nickname }} ! <small>Let's tweet again !</small></h1>
     <ul class="lead ">
       {% for post in posts %}
       <blockquote>
        <b>{{ post.body }}</b>	
 	<footer><cite title="Source Title" class="text-warning">{{ post.author.nickname }}</cite></footer>
       </blockquote>
-    {% endfor %}
+      {% endfor %}
+      <img src="/static/img/cafe.png" class="center-block">      
     </ul>
 {% endblock %}
