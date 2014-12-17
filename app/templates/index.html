@@ -3,14 +3,28 @@
 {% block titi %}blog{% endblock titi%}
 
 {% block content %}
-    <h1 class="jumbotron">Hi, {{ user.nickname }}. <small>Let's tweet again !</small></h1>
-    <ul class="lead ">
-      {% for post in posts %}
-      <blockquote>
-       <b>{{ post.body }}</b>	
-	<footer><cite title="Source Title" class="text-warning">{{ post.author.nickname }}</cite></footer>
-      </blockquote>
-      {% endfor %}
-      <img src="/static/img/cafe.png" class="center-block">      
-    </ul>
+<h1 class="jumbotron">Hi, {{ g.user.nickname }}. <small>Let's tweet again !</small></h1>
+
+<form action="" method="post" name="post" role="form" class="form-inline">
+  {{ form.hidden_tag() }}
+  <div class="form-group">
+    <label for="post">Say your word:</label>
+    {{ form.post(size=30, maxlength=140, id="post", class="form-control", placeholder="max. 140 characters.") }}
+    {% for error in form.post.errors %}
+    <span class="text-danger">[ {{ error }} ]</span>
+    {% endfor %}
+    <input type="submit" value="Post!" class="btn btn-warning" />
+  </div>
+</form>
+
+<p class="lead ">
+  {% for post in posts %}
+  {{ post.author.nickname }} says:
+  <blockquote>
+    <b>{{ post.body }}</b>	
+    <footer><cite title="Source Title" class="text-warning">{{ post.author.nickname }}</cite></footer>
+  </blockquote>
+  {% endfor %}
+  <img src="/static/img/cafe.png" class="center-block">      
+</p>
 {% endblock %}
