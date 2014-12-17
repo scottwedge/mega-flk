@@ -68,14 +68,11 @@ class User(db.Model):
             followers.c.followed_id == user.id).count() > 0
 
     def followed_posts(self):
-        return Post.query.join(
-            followers, (followers.c.followed_id == Post.user_id)).filter(
-                followers.c.follower_id == self.id).order_by(
-                    Post.timestamp.desc())
-
+        return Post.query.join(followers, (followers.c.followed_id == Post.user_id)).filter(followers.c.follower_id == self.id).order_by(Post.timestamp.desc())
+    
     def __repr__(self):
         return '<User %r>' % (self.nickname)
-        
+
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
