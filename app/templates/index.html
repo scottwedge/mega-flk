@@ -17,14 +17,25 @@
   </div>
 </form>
 
-<p class="lead ">
-  {% for post in posts %}
-  {{ post.author.nickname }} says:
-  <blockquote>
-    <b>{{ post.body }}</b>	
-    <footer><cite title="Source Title" class="text-warning">{{ post.author.nickname }}</cite></footer>
-  </blockquote>
+<p>
+  {% for post in posts.items %}
+    {% include 'post.html' %}
   {% endfor %}
   <img src="/static/img/cafe.png" class="center-block">      
 </p>
+<nav>
+  <ul class="pager">
+    {% if posts.has_prev %}
+    <li>
+      <a href="{{ url_for('index', page=posts.prev_num) }}"><< Newer posts</a>
+    </li>
+    {% endif %}
+    {% if posts.has_next %}
+    <li>
+      <a href="{{ url_for('index', page=posts.next_num) }}">Older Post >></a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>
+
 {% endblock %}

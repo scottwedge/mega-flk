@@ -26,8 +26,20 @@
   </tr>
 </table>
 <hr />
-{% for post in posts %}
+{% for post in posts.items %}
 {% include 'post.html' %}
 <span style="margin-left:100px">&#9784;</span><br /><br />
 {% endfor %}
+<ul class="pager">
+  {% if posts.has_prev %}
+  <li class="previous">
+    <a href="{{ url_for('user', nickname=user.nickname, page=posts.prev_num) }}">&laquo; Newer posts </a>
+  </li>
+{% endif %}
+  {% if posts.has_next %}
+    <li class="next">
+      <a href="{{ url_for('user', nickname=user.nickname, page=posts.next_num) }}"> Older posts &raquo;</a>
+    </li>
+    {% endif %}
+</ul>
 {% endblock %}
