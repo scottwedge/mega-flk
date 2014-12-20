@@ -1,5 +1,5 @@
 <img src="{{ post.author.avatar(48) }}" class="img-thumbnail">
-On the {{ post.timestamp }},
+On the {{ post.timestamp.strftime('%d-%m-%Y') }},
 <br />
 {{ post.author.nickname }} says:
 <blockquote>

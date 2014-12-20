@@ -1,18 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Edit your Profile</h1>
+<h1>Edit your Profile <img src="/static/img/edito.png">  </h1>
+<hr />
 <form action="" method="post" name="edit">
   {{ form.hidden_tag() }}
   <table>
     <tr>
       <td>Your nickname:</td>
-      <td>{{ form.nickname(size=24) }}
+      <td>{{ form.nickname(size=24, role="form-group") }}
 	{% for error in form.errors.nickname %}
 	<br /><span class="text-danger">[{{ error }}]</span>
 	{% endfor %}
       </td>      
     </tr>
+      <br />
     <tr>
       <td>About yourself:</td>
       <td>{{ form.about_me(cols=32, rows=4) }}</td>

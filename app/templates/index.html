@@ -4,7 +4,6 @@
 
 {% block content %}
 <h1 class="jumbotron">Hi, {{ g.user.nickname }}. <small>Let's tweet again !</small></h1>
-
 <form action="" method="post" name="post" role="form" class="form-inline">
   {{ form.hidden_tag() }}
   <div class="form-group">
@@ -18,10 +17,10 @@
 </form>
 
 <p>
+<img src="/static/img/cafe.png" class="center-block center-block">
   {% for post in posts.items %}
     {% include 'post.html' %}
   {% endfor %}
-  <img src="/static/img/cafe.png" class="center-block">      
 </p>
 <nav>
   <ul class="pager">
