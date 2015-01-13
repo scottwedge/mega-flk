@@ -1,0 +1,34 @@
+import os
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+# mail server settings
+#MAIL_SERVER = 'localhost'
+#MAIL_PORT = 25
+DEBUG = True
+MAIL_SERVER='smtp.gmail.com'
+MAIL_PORT=465
+MAIL_USE_SSL=True
+MAIL_USERNAME = 'baptiste.ossipow@google.com'
+MAIL_PASSWORD = 'p3b4L5golz'
+# administrator list
+ADMINS = ['baptiste.ossipow@gmail.com']
+
+WTF_CSRF_ENABLED = True
+SECRET_KEY = 'onelove'
+
+
+OPENID_PROVIDERS = [
+    {'name': 'Google', 'url': 'https://www.google.com/accounts/o8/id'},
+    {'name': 'Yahoo', 'url': 'https://me.yahoo.com'},
+    {'name': 'AOL', 'url': 'http://openid.aol.com/<username>'},
+    {'name': 'Flickr', 'url': 'http://www.flickr.com/<username>'},
+    {'name': 'MyOpenID', 'url': 'file:///static/img/<username>.png'}]
+
+
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
+SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
+
+
+# pagination
+POSTS_PER_PAGE = 3
