@@ -3,3 +3,4 @@
 .pyc
 .pyc~
 config.py
+__pycache__/*
